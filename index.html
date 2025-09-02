@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workshops, Certifications & Training</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .filter {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .filter select {
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      margin: 0;
+      color: #0077b6;
+    }
+
+    .card p {
+      color: #555;
+      margin-top: 8px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Workshops, Certifications & Training</h1>
+
+  <!-- Filter dropdown -->
+  <div class="filter">
+    <label for="type">Filter by: </label>
+    <select id="type" onchange="filterItems()">
+      <option value="all">All</option>
+      <option value="workshop">Workshops</option>
+      <option value="certification">Certifications</option>
+      <option value="training">Training</option>
+    </select>
+  </div>
+
+  <!-- Cards -->
+  <div class="card-container" id="cardContainer">
+    <div class="card" data-type="workshop">
+      <h3>AI & Machine Learning Workshop</h3>
+      <p>Organized by: IIT Madras | Date: Jan 2024</p>
+    </div>
+
+    <div class="card" data-type="certification">
+      <h3>Google Cloud Certification</h3>
+      <p>Issued by: Google | Date: Mar 2024</p>
+    </div>
+
+    <div class="card" data-type="training">
+      <h3>Full Stack Web Development Training</h3>
+      <p>Institution: Udemy | Duration: 6 months</p>
+    </div>
+
+    <div class="card" data-type="workshop">
+      <h3>Cyber Security Workshop</h3>
+      <p>Organized by: NIT Trichy | Date: Apr 2024</p>
+    </div>
+
+    <div class="card" data-type="certification">
+      <h3>Python Programming Certification</h3>
+      <p>Issued by: Coursera | Date: Feb 2024</p>
+    </div>
+  </div>
+
+  <script>
+    function filterItems() {
+      const type = document.getElementById("type").value;
+      const cards = document.querySelectorAll(".card");
+
+      cards.forEach(card => {
+        if (type === "all" || card.getAttribute("data-type") === type) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
